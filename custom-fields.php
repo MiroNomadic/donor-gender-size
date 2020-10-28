@@ -8,38 +8,36 @@
 function donor_gender_custom_form_fields( $form_id ) {
 
 		?>
-		<div id="give-gender-wrap" class="form-row form-row-wide">
-			<label class="donor-label" for="give-donor-gender">
-				<?php _e( 'Please select your gender:', 'give' ); ?>
-			</label>
-<div class="donor-g-s">
-  <input type="radio" id="donor-male" class="give-radio" name="donor_gender" value="male">
-  <label for="male">Male</label>
-  <input type="radio" id="donor-female" class="give-radio" name="donor_gender" value="female">
-  <label for="female">Female</label>
+	<div id="give-gender-wrap" class="form-row form-row-wide">
+		<label class="donor-label" for="give-donor-gender">
+		<?php _e( 'Please select your gender:', 'give' ); ?>
+	</label>
+		<div class="donor-g-s">
+			<input type="radio" id="donor-male" class="give-radio" name="donor_gender" value="male">
+			<label for="male">Male</label>
+			<input type="radio" id="donor-female" class="give-radio" name="donor_gender" value="female">
+			<label for="female">Female</label>
 
-		</div>		</div>
+		</div>		
+	</div>
 
-
-		<div id="give-size-wrap" class="form-row form-row-wide">
-			<label class="donor-label" for="give-donor-size">
+	<div id="give-size-wrap" class="form-row form-row-wide">
+			<label class="donor-label" for="give-size-gender">
 				<?php _e( 'Please select your size:', 'give' ); ?>
 			</label>
-
-<div class="donor-g-s">
-
-  <input type="radio" id="donor-s" class="give-radio" name="donor_size" value="male">
-  <label for="male">S</label>
-  <input type="radio" id="donor-m" class="give-radio" name="donor_size" value="female">
-  <label for="female">M</label>
-  <input type="radio" id="donor-l" class="give-radio" name="donor_size" value="male">
-  <label for="male">L</label>
-  <input type="radio" id="donor-xl" class="give-radio" name="donor_size" value="female">
-  <label for="female">XL</label>
-  <input type="radio" id="donor-xxl" class="give-radio" name="donor_size" value="female">
-  <label for="female">XXL</label>  
-</div>
+		<div class="donor-g-s">
+			 <input type="radio" id="donor-s" class="give-radio" name="donor_size" value="male">
+			 <label for="male">S</label>
+			 <input type="radio" id="donor-m" class="give-radio" name="donor_size" value="female">
+			 <label for="female">M</label>
+			 <input type="radio" id="donor-l" class="give-radio" name="donor_size" value="male">
+			 <label for="male">L</label>
+			 <input type="radio" id="donor-xl" class="give-radio" name="donor_size" value="female">
+			 <label for="female">XL</label>
+			 <input type="radio" id="donor-xxl" class="give-radio" name="donor_size" value="female">
+			 <label for="female">XXL</label>  
 		</div>
+	</div>
 
 		<?php
 
@@ -72,6 +70,7 @@ function donor_gender_save_custom_fields( $payment_id ) {
 }
 
 add_action( 'give_insert_payment', 'donor_gender_save_custom_fields' );
+
 
 /**
  * Show Data in Transaction Details
