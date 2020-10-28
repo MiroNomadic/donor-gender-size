@@ -22,7 +22,7 @@ function donor_gender_custom_form_fields( $form_id ) {
 
 
 		<div id="give-size-wrap" class="form-row form-row-wide">
-			<label class="donor-label" for="give-engraving-message">
+			<label class="donor-label" for="give-donor-size">
 				<?php _e( 'Please select your size:', 'give' ); ?>
 			</label>
 
