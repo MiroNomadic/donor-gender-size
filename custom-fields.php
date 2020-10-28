@@ -38,9 +38,7 @@ function donor_gender_custom_form_fields( $form_id ) {
 			 <label for="female">XXL</label>  
 		</div>
 	</div>
-
 		<?php
-
 }
 
 add_action( 'give_donation_form_after_email', 'donor_gender_custom_form_fields' );
@@ -66,9 +64,7 @@ function donor_gender_save_custom_fields( $payment_id ) {
 		$message = wp_strip_all_tags( $_POST['donor_size'], true );
 		give_update_payment_meta( $payment_id, 'donor_size', $message );
 	}	
-
 }
-
 add_action( 'give_insert_payment', 'donor_gender_save_custom_fields' );
 
 
@@ -85,27 +81,22 @@ function donor_gender_donation_details( $payment_id ) {
 	$donor_size = give_get_meta( $payment_id, 'donor_size', true );	
 
 	if ( $donor_gender ) : ?>
-
 		<div id="give-engraving-message" class="postbox">
 			<h3 class="hndle"><?php esc_html_e( 'Donor Gender', 'give' ); ?></h3>
 			<div class="inside" style="padding-bottom:10px;">
 				<?php echo wpautop( $donor_gender ); ?>
 			</div>
 		</div>
-
 	<?php endif;
 
 	if ( $donor_size ) : ?>
-
 		<div id="give-engraving-message" class="postbox">
 			<h3 class="hndle"><?php esc_html_e( 'Donor Size', 'give' ); ?></h3>
 			<div class="inside" style="padding-bottom:10px;">
 				<?php echo wpautop( $donor_size ); ?>
 			</div>
 		</div>
-
 	<?php endif;	
-
 }
 
 add_action( 'give_view_donation_details_billing_before', 'donor_gender_donation_details', 10, 1 );
@@ -134,7 +125,6 @@ function donor_gender_referral_data( $tag_args ) {
 	if ( ! empty( $donor_size ) ) {
 		$output = wp_kses_post( $donor_size );
 	}	
-
 	return $output;
 }
 
@@ -161,7 +151,6 @@ function donor_gender_receipt_args( $args, $donation_id, $form_id ) {
 			// Do not show Engraved field if empty
 			'display' => empty( $donor_gender ) ? false : true,
 		);
-
 	return $args;
 }
 
@@ -190,7 +179,6 @@ function donor_size_receipt_args( $args, $donation_id, $form_id ) {
 			// Do not show Engraved field if empty
 			'display' => empty( $donor_size ) ? false : true,
 		);
-
 	return $args;
 }
 
@@ -244,7 +232,6 @@ function donor_gender_update_columns_heading( $cols ) {
 	if ( isset( $cols['donor_gender'] ) ) {
 		$cols['donor_gender'] = __( 'Donor gender', 'give' );
 	}
-
 	return $cols;
 
 }
@@ -263,9 +250,7 @@ function donor_size_update_columns_heading( $cols ) {
 	if ( isset( $cols['donor_size'] ) ) {
 		$cols['donor_size'] = __( 'Donor size', 'give' );
 	}
-
 	return $cols;
-
 }
 
 add_filter( 'give_export_donation_get_columns_name', 'donor_size_update_columns_heading' );
@@ -285,7 +270,6 @@ function donor_gender_export_donation_data( $data, $payment, $columns ) {
 		$message              = $payment->get_meta( 'donor_gender' );
 		$data['donor_gender'] = isset( $message ) ? wp_kses_post( $message ) : '';
 	}
-
 	return $data;
 }
 
@@ -305,7 +289,6 @@ function donor_size_export_donation_data( $data, $payment, $columns ) {
 		$message              = $payment->get_meta( 'donor_size' );
 		$data['donor_size'] = isset( $message ) ? wp_kses_post( $message ) : '';
 	}
-
 	return $data;
 }
 
@@ -328,7 +311,6 @@ function donor_gender_export_custom_fields( $responses, $form_id ) {
 			$responses['standard_fields'] = $standard_fields;
 		}
 	}
-
 	return $responses;
 }
 
@@ -352,7 +334,6 @@ function donor_size_export_custom_fields( $responses, $form_id ) {
 			$responses['standard_fields'] = $standard_fields;
 		}
 	}
-
 	return $responses;
 }
 
